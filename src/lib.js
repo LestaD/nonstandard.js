@@ -207,3 +207,20 @@ if (!Number.rangeInside) {
   });
 }
 
+if (!Number.prototype.times) {
+  Object.defineProperty(Number.prototype, 'times', {
+    enumerable: false,
+    configurable: false,
+    value: function (callback) {
+      if (typeof callback !== 'function') throw new Error('Parameter `callback` must be Function!');
+
+      var result = [];
+      var iterates = Number(this);
+      for (var i = 0; i < iterates; i++) {
+        result.push(callback(i + 0));
+      }
+      return result;
+    }
+  });
+}
+

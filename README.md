@@ -200,3 +200,16 @@ for (var num of Number.rangeInside(1, 5)) {
 */
 ```
 
+## Number.prototype.times
+
+Run callback n times
+
+```typescript
+(5).times(function(index: number){ return index + 1; }) : number[]
+```
+
+```js
+var result = (5).times(function(index) { return ++index * 2; });
+result // [ 2, 4, 6, 8, 10 ]
+```
+
