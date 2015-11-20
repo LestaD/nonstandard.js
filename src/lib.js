@@ -108,10 +108,14 @@ if (!Array.prototype.includes) {
     enumerable: false,
     configurable: false,
     value: function (searchElements) {
+      var that = this;
+
       if (!Array.isArray(searchElements)) {
         searchElements = [searchElements];
       }
-      return searchElements.every((element) => this.indexOf(element) > -1);
+      return searchElements.every(function(element){
+        return that.indexOf(element) > -1;
+      });
     }
   });
 }
