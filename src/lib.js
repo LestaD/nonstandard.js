@@ -45,7 +45,7 @@ if (![1]['last']) {
 }
 
 
-if (![].clean) {
+if (!Array.prototype.clean) {
   Object.defineProperty(Array.prototype, 'clean', {
     enumerable: false,
     configurable: false,
@@ -61,13 +61,54 @@ if (![].clean) {
   });
 }
 
+if (!Array.prototype.every) {
+  Object.defineProperty(Array.prototype, 'every', {
+    enumerable: false,
+    configurable: false,
+    value: function(callbackfn, thisArg) {
+      'use strict';
+      var T, k;
 
-if (![].includes) {
+      if (this == null) {
+        throw new TypeError('this is null or not defined');
+      }
+
+      var O = Object(this);
+      var len = O.length >>> 0;
+
+      if (typeof callbackfn !== 'function') {
+        throw new TypeError();
+      }
+
+      if (arguments.length > 1) {
+        T = thisArg;
+      }
+
+      k = 0;
+      while (k < len) {
+        var kValue;
+
+        if (k in O) {
+          kValue = O[k];
+          var testResult = callbackfn.call(T, kValue, k, O);
+          if (!testResult) {
+            return false;
+          }
+        }
+        k++;
+      }
+      return true;
+    }
+  });
+}
+
+
+if (!Array.prototype.includes) {
   Object.defineProperty(Array.prototype, 'includes', {
     enumerable: false,
     configurable: false,
     value: function (searchElements) {
-      if (searchElements instanceof String) {
+      if (!Array.isArray(searchElements)) {
         searchElements = [searchElements];
       }
       return searchElements.every((element) => this.indexOf(element) > -1);
@@ -76,7 +117,7 @@ if (![].includes) {
 }
 
 
-if (![].clone) {
+if (!Array.prototype.clone) {
   Object.defineProperty(Array.prototype, 'clone', {
     enumerable: false,
     configurable: false,
@@ -114,7 +155,7 @@ if (!Object.clone) {
 }
 
 
-if (Number.range) {
+if (!Number.range) {
   Object.defineProperty(Number, 'range', {
     enumerable: false,
     configurable: false,
@@ -138,4 +179,27 @@ if (Number.range) {
   });
 }
 
+if (!Number.rangeInside) {
+  Object.defineProperty(Number, 'rangeInside', {
+    enumerable: false,
+    configurable: false,
+    value: function (min, max, step) {
+      if (typeof step === 'undefined') step = 1;
+      var current = min;
+
+      return {
+        [Symbol.iterator]() {
+          return {
+            next() {
+              return {
+                done: current >= max - step,
+                value: current >= max - step ? undefined : current += step
+              }
+            }
+          }
+        }
+      };
+    }
+  });
+}
 
