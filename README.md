@@ -1,7 +1,7 @@
 # Readme
 
  [![NPM](https://nodei.co/npm/nonstandard.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/nonstandard/)
- 
+
  [![Build Status](https://travis-ci.org/LestaD/nonstandard.js.svg?branch=master)](https://travis-ci.org/LestaD/nonstandard.js)
  ![Dependencies](https://david-dm.org/lestad/nonstandard.js.svg)
  ![npm version](https://badge.fury.io/js/nonstandard.svg)
@@ -11,6 +11,8 @@
  ![GitHub tag](https://img.shields.io/github/tag/lestad/nonstandard.js.svg)
 
 Some non standard JavaScript features.
+
+> from Node.js > 3.0.0
 
 ## Array.prototype.first
 

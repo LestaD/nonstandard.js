@@ -6,6 +6,9 @@
   "scripts": {
     "test": "NODE_ENV=test mocha -r should -R spec"
   },
+  "engines": {
+    "node" : ">=3.0.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/LestaD/nonstandard.js.git"
