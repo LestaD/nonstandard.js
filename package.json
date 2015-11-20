@@ -1,0 +1,26 @@
+{
+  "name": "nonstandard",
+  "version": "0.1.0",
+  "description": "Non standard JavaScript features",
+  "main": "src/lib.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/LestaD/nonstandard.js.git"
+  },
+  "keywords": [
+    "non",
+    "standard",
+    "polyfill",
+    "feature",
+    "ecma"
+  ],
+  "author": "LestaD <i.am@lestad.net> (Sergey Sova)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/LestaD/nonstandard.js/issues"
+  },
+  "homepage": "https://github.com/LestaD/nonstandard.js#readme"
+}
