@@ -4,7 +4,7 @@
   "description": "Non standard JavaScript features",
   "main": "src/lib.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "NODE_ENV=test mocha -r should -R spec"
   },
   "repository": {
     "type": "git",
@@ -22,5 +22,9 @@
   "bugs": {
     "url": "https://github.com/LestaD/nonstandard.js/issues"
   },
-  "homepage": "https://github.com/LestaD/nonstandard.js#readme"
+  "homepage": "https://github.com/LestaD/nonstandard.js#readme",
+  "devDependencies": {
+    "mocha": "^2.3.4",
+    "should": "^7.1.1"
+  }
 }
