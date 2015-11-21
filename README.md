@@ -5,10 +5,9 @@
  [![Build Status](https://travis-ci.org/LestaD/nonstandard.js.svg?branch=master)](https://travis-ci.org/LestaD/nonstandard.js)
  ![Dependencies](https://david-dm.org/lestad/nonstandard.js.svg)
  ![npm version](https://badge.fury.io/js/nonstandard.svg)
- ![Code Climate](https://codeclimate.com/github/LestaD/nonstandard.js/badges/gpa.svg)
+ [![Code Climate](https://codeclimate.com/github/LestaD/nonstandard.js/badges/gpa.svg)](https://codeclimate.com/github/LestaD/nonstandard.js)
  ![Latest](https://img.shields.io/github/downloads/lestad/nonstandard.js/latest/total.svg)
  ![npm](https://img.shields.io/npm/dm/nonstandard.js.svg)
- ![GitHub tag](https://img.shields.io/github/tag/lestad/nonstandard.js.svg)
 
 Some non standard JavaScript features.
 
