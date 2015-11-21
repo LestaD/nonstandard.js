@@ -168,9 +168,9 @@ if (!Number.range) {
       var current = min - step;
 
       return {
-        [Symbol.iterator]() {
+        [Symbol.iterator]: function() {
           return {
-            next() {
+            next: function() {
               return {
                 done: current >= max,
                 value: current >= max ? undefined : current += step
@@ -192,9 +192,9 @@ if (!Number.rangeInside) {
       var current = min;
 
       return {
-        [Symbol.iterator]() {
+        [Symbol.iterator]: function() {
           return {
-            next() {
+            next: function() {
               return {
                 done: current >= max - step,
                 value: current >= max - step ? undefined : current += step
