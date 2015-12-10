@@ -165,47 +165,30 @@ if (!Number.range) {
     configurable: false,
     value: function (min, max, step) {
       if (typeof step === 'undefined') step = 1;
-      var current = min - step;
+      var values = [];
 
-      return {
-        [Symbol.iterator]: function() {
-          return {
-            next: function() {
-              return {
-                done: current >= max,
-                value: current >= max ? undefined : current += step
-              }
-            }
-          }
-        }
-      };
+      for (var i = min; i < max; i += step) {
+        values.push(i);
+      }
+
+      return values;
     }
   });
 }
 
-if (!Number.rangeInside) {
-  Object.defineProperty(Number, 'rangeInside', {
+
+if (!Number.rangeOut) {
+  Object.defineProperty(Number, 'rangeOut', {
     enumerable: false,
     configurable: false,
-    value: function (min, max, step) {
+    value: function(min, max, step) {
       if (typeof step === 'undefined') step = 1;
-      var current = min;
 
-      return {
-        [Symbol.iterator]: function() {
-          return {
-            next: function() {
-              return {
-                done: current >= max - step,
-                value: current >= max - step ? undefined : current += step
-              }
-            }
-          }
-        }
-      };
+      return Number.range(min, max + step, step);
     }
   });
 }
+
 
 if (!Number.prototype.times) {
   Object.defineProperty(Number.prototype, 'times', {

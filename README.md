@@ -146,57 +146,42 @@ var wob = Object.clone(oob);
 
 ## Number.range
 
-Creates iterable range
+Create array of numbers
 
 ```typescript
-Number.range(min: number, max: number, step: number = 1) : iterable;
+Number.range(min: number, max: number, step: number = 1) : Number[];
 ```
 
 ```js
-
-for (var num of Number.range(1, 10)) {
-  console.log(num);
-}
+console.log(Number.range(1, 10))
 /*
-  1
-  2
-  3
-  4
-  5
-  6
-  7
-  8
-  9
-  10
+  [1, 2, 3, 4, 5, 6, 7, 8, 9]
 */
 
-for (var i of Number.range(2, 6, 2)) {
-  console.log(i);
-}
+console.log(Number.range(2, 8, 2))
 /*
-  2
-  4
-  6
+  [2, 4, 6]
 */
 ```
 
 
-## Number.rangeInside
+## Number.rangeOut
 
-Create iterable for range inside only.
+Create array with outside values
 
 ```typescript
-Number.rangeInside(min: number, max: number, step: number = 1) : iterable;
+Number.rangeOut(min: number, max: number, step: number = 1) : Number[];
 ```
 
 ```js
-for (var num of Number.rangeInside(1, 5)) {
-  console.log(num);
-}
+console.log(Number.rangeOut(1, 10))
 /*
-  2
-  3
-  4
+  [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+*/
+
+console.log(Number.rangeOut(2, 8, 2))
+/*
+  [2, 4, 6, 8]
 */
 ```
 
