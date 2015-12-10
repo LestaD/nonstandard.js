@@ -167,7 +167,7 @@ if (!Number.range) {
       if (typeof step === 'undefined') step = 1;
       var values = [];
 
-      for (var i = min; i < max; i += step) {
+      for (var i = min; i <= max; i += step) {
         values.push(i);
       }
 
@@ -175,20 +175,6 @@ if (!Number.range) {
     }
   });
 }
-
-
-if (!Number.rangeOut) {
-  Object.defineProperty(Number, 'rangeOut', {
-    enumerable: false,
-    configurable: false,
-    value: function(min, max, step) {
-      if (typeof step === 'undefined') step = 1;
-
-      return Number.range(min, max + step, step);
-    }
-  });
-}
-
 
 if (!Number.prototype.times) {
   Object.defineProperty(Number.prototype, 'times', {

@@ -155,31 +155,10 @@ Number.range(min: number, max: number, step: number = 1) : Number[];
 ```js
 console.log(Number.range(1, 10))
 /*
-  [1, 2, 3, 4, 5, 6, 7, 8, 9]
-*/
-
-console.log(Number.range(2, 8, 2))
-/*
-  [2, 4, 6]
-*/
-```
-
-
-## Number.rangeOut
-
-Create array with outside values
-
-```typescript
-Number.rangeOut(min: number, max: number, step: number = 1) : Number[];
-```
-
-```js
-console.log(Number.rangeOut(1, 10))
-/*
   [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 */
 
-console.log(Number.rangeOut(2, 8, 2))
+console.log(Number.range(2, 8, 2))
 /*
   [2, 4, 6, 8]
 */
