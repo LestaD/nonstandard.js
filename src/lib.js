@@ -1,6 +1,6 @@
 
 
-if (![1]['first']) {
+if (typeof [1]['first'] === 'undefined') {
   Object.defineProperty(Array.prototype, 'first', {
     enumerable: false,
     configurable: false,
@@ -15,7 +15,7 @@ if (![1]['first']) {
 }
 
 
-if (![1, 2]['second']) {
+if (typeof [1, 2]['second'] === 'undefined') {
   Object.defineProperty(Array.prototype, 'second', {
     enumerable: false,
     configurable: false,
@@ -30,7 +30,7 @@ if (![1, 2]['second']) {
 }
 
 
-if (![1]['last']) {
+if (typeof [1]['last'] === 'undefined') {
   Object.defineProperty(Array.prototype, 'last', {
     enumerable: false,
     configurable: false,
@@ -45,7 +45,7 @@ if (![1]['last']) {
 }
 
 
-if (!Array.prototype.clean) {
+if (typeof Array.prototype.clean === 'undefined') {
   Object.defineProperty(Array.prototype, 'clean', {
     enumerable: false,
     configurable: false,
@@ -61,7 +61,7 @@ if (!Array.prototype.clean) {
   });
 }
 
-if (!Array.prototype.every) {
+if (typeof Array.prototype.every === 'undefined') {
   Object.defineProperty(Array.prototype, 'every', {
     enumerable: false,
     configurable: false,
@@ -103,7 +103,7 @@ if (!Array.prototype.every) {
 }
 
 
-if (!Array.prototype.includes) {
+if (typeof Array.prototype.includes === 'undefined') {
   Object.defineProperty(Array.prototype, 'includes', {
     enumerable: false,
     configurable: false,
@@ -121,7 +121,7 @@ if (!Array.prototype.includes) {
 }
 
 
-if (!Array.prototype.clone) {
+if (typeof Array.prototype.clone === 'undefined') {
   Object.defineProperty(Array.prototype, 'clone', {
     enumerable: false,
     configurable: false,
@@ -132,7 +132,7 @@ if (!Array.prototype.clone) {
 }
 
 
-if (!Object.clone) {
+if (typeof Object.clone === 'undefined') {
   Object.defineProperty(Object, 'clone', {
     enumerable: false,
     configurable: false,
@@ -159,7 +159,7 @@ if (!Object.clone) {
 }
 
 
-if (!Number.range) {
+if (typeof Number.range === 'undefined') {
   Object.defineProperty(Number, 'range', {
     enumerable: false,
     configurable: false,
@@ -176,7 +176,7 @@ if (!Number.range) {
   });
 }
 
-if (!Number.prototype.times) {
+if (typeof Number.prototype.times === 'undefined') {
   Object.defineProperty(Number.prototype, 'times', {
     enumerable: false,
     configurable: false,
