@@ -1,6 +1,6 @@
 {
   "name": "nonstandard",
-  "version": "0.6.3",
+  "version": "0.6.4",
   "description": "Non standard JavaScript features",
   "main": "src/lib.js",
   "scripts": {

@@ -15,7 +15,7 @@ if (![1]['first']) {
 }
 
 
-if (![1]['second']) {
+if (![1, 2]['second']) {
   Object.defineProperty(Array.prototype, 'second', {
     enumerable: false,
     configurable: false,
