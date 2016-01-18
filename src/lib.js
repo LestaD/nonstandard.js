@@ -196,14 +196,17 @@ if (typeof Number.prototype.times === 'undefined') {
 
 (function(){
   var definePipe = function(target) {
-    Object.defineProperty(target, 'pipe', {
-      enumerable: false,
-      configurable: false,
-      value: function() {
-        target.apply(arguments);
-        return arguments[0];
-      }
-    });
+    if (!'pipe' in target) {
+      Object.defineProperty(target, 'pipe', {
+        enumerable: false,
+        configurable: false,
+        value: function() {
+          var caller = target;
+          caller.apply(arguments);
+          return arguments[0];
+        }
+      });
+    }
   }
 
   if (typeof global !== 'undefined' && global.console) {
