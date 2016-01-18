@@ -196,7 +196,7 @@ if (typeof Number.prototype.times === 'undefined') {
 
 (function(){
   var definePipe = function(target) {
-    if (!'pipe' in target) {
+    if (!('pipe' in target)) {
       Object.defineProperty(target, 'pipe', {
         enumerable: false,
         configurable: false,
