@@ -215,14 +215,16 @@ if (typeof Number.prototype.times === 'undefined') {
     definePipe(global.console, 'info');
     definePipe(global.console, 'log');
 
-    Object.defineProperty(global.console, 'pipe', {
-      enumerable: false,
-      configurable: false,
-      value: function() {
-        global.console.log.apply(global.console, arguments);
-        return arguments[0];
-      }
-    });
+    if (!('pipe' in window.console)) {
+      Object.defineProperty(global.console, 'pipe', {
+        enumerable: false,
+        configurable: false,
+        value: function() {
+          global.console.log.apply(global.console, arguments);
+          return arguments[0];
+        }
+      });
+    }
   }
 
   if (typeof window !== 'undefined' && window.console) {
@@ -231,14 +233,16 @@ if (typeof Number.prototype.times === 'undefined') {
     definePipe(window.console, 'info');
     definePipe(window.console, 'log');
 
-    Object.defineProperty(window.console, 'pipe', {
-      enumerable: false,
-      configurable: false,
-      value: function() {
-        window.console.log.apply(window.console, arguments);
-        return arguments[0];
-      }
-    });
+    if (!('pipe' in window.console)) {
+      Object.defineProperty(window.console, 'pipe', {
+        enumerable: false,
+        configurable: false,
+        value: function() {
+          window.console.log.apply(window.console, arguments);
+          return arguments[0];
+        }
+      });
+    }
   }
 })();
 
