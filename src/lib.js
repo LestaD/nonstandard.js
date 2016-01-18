@@ -193,3 +193,34 @@ if (typeof Number.prototype.times === 'undefined') {
   });
 }
 
+
+(function(){
+  var definePipe = function(target) {
+    Object.defineProperty(target, 'pipe', {
+      enumerable: false,
+      configurable: false,
+      value: function() {
+        target.apply(arguments);
+        return arguments[0];
+      }
+    });
+  }
+
+  if (typeof global !== 'undefined' && global.console) {
+    definePipe(global.console.error);
+    definePipe(global.console.warn);
+    definePipe(global.console.info);
+    definePipe(global.console.log);
+  }
+
+  if (typeof window !== 'undefined' && window.console) {
+    definePipe(window.console.error);
+    definePipe(window.console.warn);
+    definePipe(window.console.info);
+    definePipe(window.console.log);
+  }
+})();
+
+
+
+

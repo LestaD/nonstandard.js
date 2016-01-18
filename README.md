@@ -14,6 +14,34 @@ Some non standard JavaScript features.
 
 > from Node.js > 3.0.0
 
+
+## console.[log, info, warn, error].pipe
+
+Log value to console and pass value
+First value was passed next.
+
+```typescript
+console.log.pipe();
+console.info.pipe();
+console.warn.pipe();
+console.error.pipe();
+```
+
+```js
+executeFunction(console.log.pipe({ some: 'data' })); // value was shown in console, and passed to function `executeFunction`
+
+function actionLogin(user) {
+  return login(user.credentials)
+  .then(function(resp) {
+    return console.info.pipe(resp.data);
+  })
+  .catch(function(error) {
+    throw console.error.pipe(error); // in promise throwns was catched by next then/catch pair
+  });
+}
+```
+
+
 ## Array.prototype.first
 
 First element in array
