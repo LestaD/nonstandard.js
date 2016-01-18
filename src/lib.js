@@ -215,7 +215,7 @@ if (typeof Number.prototype.times === 'undefined') {
     definePipe(global.console, 'info');
     definePipe(global.console, 'log');
 
-    if (!('pipe' in window.console)) {
+    if (!('pipe' in global.console)) {
       Object.defineProperty(global.console, 'pipe', {
         enumerable: false,
         configurable: false,
