@@ -15,10 +15,29 @@ Some non standard JavaScript features.
 > from Node.js > 3.0.0
 
 
-## console.[log, info, warn, error].pipe
+## console.pipe
 
 Log value to console and pass value
 First value was passed next.
+
+```typescript
+console.pipe(returnValue, logValue1, logValue2, logValueN) : returnValue;
+```
+
+```js
+// write `123` to console with `console.log`
+var a = console.pipe(123);
+
+// write:
+// hello world
+// hello
+//
+console.log(console.pipe('hello', 'world'));
+```
+
+
+
+## console.[log, info, warn, error].pipe
 
 ```typescript
 console.log.pipe();

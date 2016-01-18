@@ -195,14 +195,14 @@ if (typeof Number.prototype.times === 'undefined') {
 
 
 (function(){
-  var definePipe = function(target) {
+  var definePipe = function(target, name) {
     if (!('pipe' in target)) {
-      Object.defineProperty(target, 'pipe', {
+      Object.defineProperty(target[name], 'pipe', {
         enumerable: false,
         configurable: false,
         value: function() {
-          var caller = target;
-          caller.apply(arguments);
+          var caller = target[name];
+          caller.apply(target, arguments);
           return arguments[0];
         }
       });
@@ -210,17 +210,35 @@ if (typeof Number.prototype.times === 'undefined') {
   }
 
   if (typeof global !== 'undefined' && global.console) {
-    definePipe(global.console.error);
-    definePipe(global.console.warn);
-    definePipe(global.console.info);
-    definePipe(global.console.log);
+    definePipe(global.console, 'error');
+    definePipe(global.console, 'warn');
+    definePipe(global.console, 'info');
+    definePipe(global.console, 'log');
+
+    Object.defineProperty(global.console, 'pipe', {
+      enumerable: false,
+      configurable: false,
+      value: function() {
+        global.console.log.apply(global.console, arguments);
+        return arguments[0];
+      }
+    });
   }
 
   if (typeof window !== 'undefined' && window.console) {
-    definePipe(window.console.error);
-    definePipe(window.console.warn);
-    definePipe(window.console.info);
-    definePipe(window.console.log);
+    definePipe(window.console, 'error');
+    definePipe(window.console, 'warn');
+    definePipe(window.console, 'info');
+    definePipe(window.console, 'log');
+
+    Object.defineProperty(window.console, 'pipe', {
+      enumerable: false,
+      configurable: false,
+      value: function() {
+        window.console.log.apply(window.console, arguments);
+        return arguments[0];
+      }
+    });
   }
 })();
 
