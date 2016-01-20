@@ -161,15 +161,6 @@ arr.includes('c'); // true
 arr.includes('d'); // false
 ```
 
-## Array.prototype.every
-
-> Standard polyfill
-
-The every() method tests whether all elements in the array pass the test implemented by the provided function.
-
-[Array.prototype.every()](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Array/every)
-
-
 ## Array.prototype.clone
 
 Full clone array.

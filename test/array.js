@@ -258,36 +258,6 @@ describe('Array', function() {
     });
   });
 
-  describe('.prototype.every()', function() {
-    it('property exists', function(){
-      should([]).have.property('every');
-      should([].every).should.be.Function;
-    });
-    it('throw if not function', function(){
-      should.throws(function(){ [].every() });
-      should.throws(function(){ [].every(1) });
-      should.throws(function(){ [].every("") });
-      should.throws(function(){ [].every(null) });
-      should.throws(function(){ [].every({}) });
-      should.throws(function(){ [].every(true) });
-      should.throws(function(){ [].every(false) });
-      should.doesNotThrow(function(){ [].every(function(){}) });
-    });
-    it('empty array', function(){
-      should([].every(function(){})).be.equal(true);
-    });
-    it('one item', function(){
-      should([1].every(function(){return false})).be.equal(false);
-      should([1].every(function(){return true})).be.equal(true);
-    });
-    it('many items', function(){
-      should([1, 2, 3].every(function(){return false})).be.equal(false);
-      should([1, 2, 3].every(function(){return true})).be.equal(true);
-
-      should([1, 2, 3].every(function(e){ return e > 0 })).be.equal(true);
-      should([1, 2, 3].every(function(e){ return e < 0 })).be.equal(false);
-    });
-  });
 
   describe('.prototype.clone()', function(){
     it('property exists', function(){
