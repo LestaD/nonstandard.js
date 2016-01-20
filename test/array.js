@@ -32,7 +32,23 @@ describe('Array', function() {
     });
 
     it('set value', function(){
-      should(true).be.equal(false)
+      var array = [1, 2, 3];
+
+      array.first = 10;
+      should(array.first).be.equal(10);
+      should(array[0]).be.equal(10);
+
+      array.first = undefined;
+      should(array.first).be.equal(undefined);
+      should(array[0]).be.equal(undefined);
+    });
+
+    it('create value', function(){
+      var array = [];
+
+      array.first = 2;
+      should(array[0]).equal(2);
+      should(array.length).equal(1);
     });
   });
 
@@ -58,7 +74,23 @@ describe('Array', function() {
     });
 
     it('set value', function(){
-      should(true).be.equal(false)
+      var array = [1, 2, 3];
+
+      array.second = 10;
+      should(array.second).be.equal(10);
+      should(array[1]).be.equal(10);
+
+      array.second = undefined;
+      should(array[1]).be.equal(undefined)
+    });
+
+    it('create value', function(){
+      var array = [];
+
+      array.second = 5;
+      should(array[0]).equal(undefined);
+      should(array[1]).equal(5);
+      should(array.length).equal(2);
     });
   });
 
@@ -82,7 +114,25 @@ describe('Array', function() {
     });
 
     it('set value', function(){
-      should(true).be.equal(false)
+      var array = [1, 2, 3];
+
+      array.last = 10;
+      should(array.last).be.equal(10);
+      should(array[2]).be.equal(10);
+
+      array.last = undefined;
+      should(array.last).be.equal(undefined);
+      should(array[2]).be.equal(undefined);
+    });
+
+    it('not create value', function(){
+      var array = [];
+      should(array.last).equal(undefined);
+
+      array.last = 123;
+      should(array.last).equal(undefined);
+      should(array[0]).equal(undefined);
+      should(array.length).equal(0);
     });
   });
 
@@ -104,6 +154,7 @@ describe('Array', function() {
       should(test[0]).be.equal(1);
       should(test[test.length-1]).be.Function;
     });
+
     it('clean string', function(){
       should.doesNotThrow(function(){
         test.clean("b");
@@ -112,6 +163,7 @@ describe('Array', function() {
       should(test[1]).be.equal(3.14);
       should(test[test.length-1]).be.Function;
     });
+
     it('clean null', function(){
       should.doesNotThrow(function(){
         test.clean(null);
@@ -120,14 +172,7 @@ describe('Array', function() {
       should(test[2]).be.Object;
       should(test[test.length-1]).be.Function;
     });
-    it('not remove objects', function(){
-      should.doesNotThrow(function(){
-        test.clean({}); // Objects not equal
-      });
-      should(test.length).be.equal(4);
-      should(test[2]).be.Object;
-      should(test[test.length-1]).be.Function;
-    });
+
     it('clean integer', function(){
       should.doesNotThrow(function(){
         test.clean(1);
@@ -136,12 +181,22 @@ describe('Array', function() {
       should(test[0]).be.equal(3.14);
       should(test[test.length-1]).be.Function;
     });
+
     it('clean float', function(){
       should.doesNotThrow(function(){
         test.clean(3.14);
       });
       should(test.length).be.equal(2);
       should(test[0]).be.Object;
+      should(test[test.length-1]).be.Function;
+    });
+
+    it('not remove objects', function(){
+      should.doesNotThrow(function(){
+        test.clean({}); // Objects not equal
+      });
+      should(test.length).be.equal(2);
+      should(test[2]).be.Object;
       should(test[test.length-1]).be.Function;
     });
 
@@ -240,10 +295,50 @@ describe('Array', function() {
       should([].clone).should.be.Function;
     });
 
-    it('property exists', function(){});
+    it('single item', function(){
+      var origin = [1];
+      var copy = origin.clone();
 
-    it('property exists', function(){});
+      should(copy[0]).equal(1);
+      should(copy.length).equal(origin.length);
+      should(copy[0]).equal(origin[0]);
+    });
 
-    it('property exists', function(){});
+    it('many items', function(){
+      var origin = [1, 2, 3];
+      var copy = origin.clone();
+
+      should(copy[0]).equal(1);
+      should(copy[1]).equal(2);
+      should(copy[2]).equal(3);
+      should(copy.length).equal(origin.length);
+      should(copy[0]).equal(origin[0]);
+      should(copy[1]).equal(origin[1]);
+      should(copy[2]).equal(origin[2]);
+    });
+
+    it('many objects', function(){
+      var origin = [{}, {}, {}];
+      var copy = origin.clone();
+
+      should(copy.length).equal(origin.length);
+      should(copy[0]).equal(origin[0]);
+      should(copy[1]).equal(origin[1]);
+      should(copy[2]).equal(origin[2]);
+    });
+
+    it('array of arrays', function(){
+      var origin = [[1], [2, 2], [3, 3, [3, 3, 3]]];
+      var copy = origin.clone();
+
+      should(copy[0][0]).equal(1);
+      should(copy[1][1]).equal(2);
+      should(copy[2][2][2]).equal(3);
+
+      should(copy.length).equal(origin.length);
+      should(copy[0]).equal(origin[0]);
+      should(copy[1]).equal(origin[1]);
+      should(copy[2]).equal(origin[2]);
+    });
   });
 });
