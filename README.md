@@ -12,7 +12,7 @@
 
 Some non standard JavaScript features.
 
-> from Node.js > 3.0.0
+> from Node.js > 0.12.0
 
 
 ## console.pipe
