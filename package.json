@@ -4,7 +4,8 @@
   "description": "Non standard JavaScript features",
   "main": "src/lib.js",
   "scripts": {
-    "test": "NODE_ENV=test mocha -r should -R spec"
+    "test": "NODE_ENV=test mocha -r should -R spec",
+    "coverage": "istanbul cover node_modules/.bin/_mocha -- -r should -R spec"
   },
   "engines": {
     "node" : ">=0.12.0"
@@ -28,6 +29,6 @@
   "homepage": "https://github.com/LestaD/nonstandard.js#readme",
   "devDependencies": {
     "mocha": "^2.3.4",
-    "should": "^7.1.1"
+    "should": "^8.1.1"
   }
 }
