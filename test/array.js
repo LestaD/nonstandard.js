@@ -31,7 +31,9 @@ describe('Array', function() {
       should([false, 2].first).false();
     });
 
-    it('set value', function(){});
+    it('set value', function(){
+      should(true).be.equal(false)
+    });
   });
 
   describe('.prototype.second', function() {
@@ -55,7 +57,9 @@ describe('Array', function() {
       should([false, true].second).be.true();
     });
 
-    it('set value', function(){});
+    it('set value', function(){
+      should(true).be.equal(false)
+    });
   });
 
   describe('.prototype.last', function() {
@@ -77,7 +81,9 @@ describe('Array', function() {
       should([false, true].last).be.true();
     });
 
-    it('set value', function(){});
+    it('set value', function(){
+      should(true).be.equal(false)
+    });
   });
 
   describe('.prototype.clean()', function() {
@@ -226,5 +232,18 @@ describe('Array', function() {
       should([1, 2, 3].every(function(e){ return e > 0 })).be.equal(true);
       should([1, 2, 3].every(function(e){ return e < 0 })).be.equal(false);
     });
+  });
+
+  describe('.prototype.clone()', function(){
+    it('property exists', function(){
+      should([]).have.property('clone');
+      should([].clone).should.be.Function;
+    });
+
+    it('property exists', function(){});
+
+    it('property exists', function(){});
+
+    it('property exists', function(){});
   });
 });
