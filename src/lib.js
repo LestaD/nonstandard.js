@@ -1,6 +1,6 @@
 
 
-if (typeof [1]['first'] === 'undefined') {
+if (typeof [1].first === 'undefined') {
   Object.defineProperty(Array.prototype, 'first', {
     enumerable: false,
     configurable: false,
@@ -15,7 +15,7 @@ if (typeof [1]['first'] === 'undefined') {
 }
 
 
-if (typeof [1, 2]['second'] === 'undefined') {
+if (typeof [1, 2].second === 'undefined') {
   Object.defineProperty(Array.prototype, 'second', {
     enumerable: false,
     configurable: false,
@@ -30,12 +30,12 @@ if (typeof [1, 2]['second'] === 'undefined') {
 }
 
 
-if (typeof [1]['last'] === 'undefined') {
+if (typeof [1].last === 'undefined') {
   Object.defineProperty(Array.prototype, 'last', {
     enumerable: false,
     configurable: false,
     get: function () {
-      if (this.length == 0) return undefined;
+      if (this.length === 0) return undefined;
       return this[this.length - 1];
     },
     set: function (value) {
@@ -172,7 +172,7 @@ if (typeof Number.prototype.times === 'undefined') {
         }
       });
     }
-  }
+  };
 
   if (typeof global !== 'undefined' && global.console) {
     definePipe(global.console, 'error');
