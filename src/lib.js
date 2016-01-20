@@ -35,11 +35,17 @@ if (typeof [1]['last'] === 'undefined') {
     enumerable: false,
     configurable: false,
     get: function () {
+      if (this.length == 0) return undefined;
       return this[this.length - 1];
     },
     set: function (value) {
-      this[this.length - 1] = value;
-      return value;
+      if (this.length > 0) {
+        this[this.length - 1] = value;
+        return value;
+      }
+      else {
+        return undefined;
+      }
     }
   });
 }
