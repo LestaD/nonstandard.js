@@ -99,4 +99,28 @@ describe('Array', function() {
     result = [].includes(['a', 1]);
     beFalse(result);
   });
+
+  it('.prototype.every()', function() {
+    should([]).have.property('every');
+    should([].every).should.be.Function;
+
+    should.throws(function(){ [].every() });
+    should.throws(function(){ [].every(1) });
+    should.throws(function(){ [].every("") });
+    should.throws(function(){ [].every(null) });
+    should.throws(function(){ [].every({}) });
+    should.throws(function(){ [].every(true) });
+    should.throws(function(){ [].every(false) });
+    should.doesNotThrow(function(){ [].every(function(){}) });
+
+    should([].every(function(){})).be.equal(true);
+    should([1].every(function(){return false})).be.equal(false);
+    should([1].every(function(){return true})).be.equal(true);
+
+    should([1, 2, 3].every(function(){return false})).be.equal(false);
+    should([1, 2, 3].every(function(){return true})).be.equal(true);
+
+    should([1, 2, 3].every(function(e){ return e > 0 })).be.equal(true);
+    should([1, 2, 3].every(function(e){ return e < 0 })).be.equal(false);
+  });
 });
