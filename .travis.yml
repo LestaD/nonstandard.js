@@ -8,3 +8,6 @@ node_js:
  - "5.1.0"
  - "5.4.1"
 sudo: false
+addons:
+  code_climate:
+    repo_token: 2160d04d95e0ea334c5a19deb03394413558b908666a5795fc43b3e46a89b706
