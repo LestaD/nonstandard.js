@@ -133,6 +133,16 @@ arr.clean();
 arr // now `[]`
 ```
 
+If as argument function passed, `.clean` call it on every value and clean if callback return not false, 0, null or undefined
+
+```js
+var arr = [1, 2, 3, 4, 5, 6];
+arr.clean(function(e){
+  return e % 2;
+});
+arr; // [2, 4, 6]
+```
+
 ## Array.prototype.includes
 
 Check elements exists in array

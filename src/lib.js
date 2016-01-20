@@ -51,7 +51,7 @@ if (typeof Array.prototype.clean === 'undefined') {
     configurable: false,
     value: function (deleteValue) {
       for (var foundId = 0; foundId < this.length; foundId++) {
-        if (this[foundId] === deleteValue) {
+        if (this[foundId] === deleteValue || (typeof deleteValue === 'function' && deleteValue(this[foundId]))) {
           this.splice(foundId, 1);
           foundId--;
         }
