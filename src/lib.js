@@ -167,7 +167,9 @@ if (typeof Number.prototype.times === 'undefined') {
         configurable: false,
         value: function() {
           var caller = target[name];
-          caller.apply(target, arguments);
+          if (!(typeof process !== 'undefined' && process.env.NODE_ENV == "test")) {
+            caller.apply(target, arguments);
+          }
           return arguments[0];
         }
       });
@@ -185,7 +187,9 @@ if (typeof Number.prototype.times === 'undefined') {
         enumerable: false,
         configurable: false,
         value: function() {
-          global.console.log.apply(global.console, arguments);
+          if (!(typeof process !== 'undefined' && process.env.NODE_ENV == "test")) {
+            global.console.log.apply(global.console, arguments);
+          }
           return arguments[0];
         }
       });
@@ -203,7 +207,9 @@ if (typeof Number.prototype.times === 'undefined') {
         enumerable: false,
         configurable: false,
         value: function() {
-          window.console.log.apply(window.console, arguments);
+          if (!(typeof process !== 'undefined' && process.env.NODE_ENV == "test")) {
+            window.console.log.apply(window.console, arguments);
+          }
           return arguments[0];
         }
       });

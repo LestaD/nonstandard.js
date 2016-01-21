@@ -4,4 +4,4 @@ var lib = require(path);
 var should = require('should');
 
 
-console.log(Number.range(1,10));
+//console.log(Number.range(1,10));
