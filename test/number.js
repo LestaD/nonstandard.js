@@ -4,4 +4,14 @@ var lib = require(path);
 var should = require('should');
 
 
-//console.log(Number.range(1,10));
+
+describe('Number', function() {
+  describe('.range()', function() {
+    it('property exists', function() {
+      should(Number).have.a.property('range');
+      should(Number.range).be.a.Function;
+    });
+
+
+  });
+});

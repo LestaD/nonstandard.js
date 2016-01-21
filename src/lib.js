@@ -131,6 +131,12 @@ if (typeof Number.range === 'undefined') {
     enumerable: false,
     configurable: false,
     value: function (min, max, step) {
+      if (typeof min !== 'number'
+          || typeof max !== 'number'
+          || (typeof step !== 'undefined' && typeof step !== 'number')) {
+        throw new TypeError('Arguments for Number.range() must be Number');
+      }
+
       if (typeof step === 'undefined') step = 1;
       var values = [];
 
