@@ -138,12 +138,21 @@ if (typeof Number.range === 'undefined') {
       }
 
       if (typeof step === 'undefined') step = 1;
-      var values = [];
+      if (step <= 0) throw new Error('Step must be positive number!');
+      if (min > max) throw new Error('Min must be less than Max!');
 
-      for (var i = min; i <= max; i += step) {
-        values.push(i);
+      var values = [min];
+      var it = min;
+
+      // if (step < 0) {
+      //   var back = max;
+      //   max = min;
+      //   min = back;
+      // }
+
+      while(it != max) {
+        values.push(it += step);
       }
-
       return values;
     }
   });
