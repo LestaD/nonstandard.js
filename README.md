@@ -20,7 +20,7 @@ Log value to console and pass value
 First value was passed next.
 
 ```typescript
-console.pipe(returnValue, logValue1, logValue2, logValueN) : returnValue;
+console.pipe(returnValue: Mixed, logValue1: Mixed, logValue2: Mixed, logValueN: Mixed) : returnValue;
 ```
 
 ```js
@@ -121,7 +121,7 @@ Clear array
 
 
 ```typescript
-[].clear() : Array<any>
+[].clear() : Array<Mixed>
 ```
 
 ```js
@@ -148,7 +148,7 @@ Check elements exists in array
 
 
 ```typescript
-[].includes(Array<any>) : boolean
+[].includes(Array<Mixed>) : Boolean
 ```
 
 ```js
@@ -166,7 +166,7 @@ arr.includes('d'); // false
 Full clone array.
 
 ```typescript
-[].clone() : Array<any>
+[].clone() : Array<Mixed>
 ```
 
 ```js
@@ -181,7 +181,7 @@ arr // [1, 5]
 Deep clone object
 
 ```typescript
-Object.clone(target: object) : object;
+Object.clone(target: Object) : Object;
 ```
 
 ```js
@@ -196,7 +196,7 @@ var wob = Object.clone(oob);
 Create array of numbers
 
 ```typescript
-Number.range(min: number, max: number, step: number = 1) : Number[];
+Number.range(min: Number, max: Number, step: Number = 1) : Number[];
 ```
 
 ```js
@@ -216,7 +216,7 @@ console.log(Number.range(2, 8, 2))
 Run callback n times
 
 ```typescript
-(5).times(function(index: number){ return index + 1; }) : number[]
+(5).times(function(index: Number) { return index + 1; }) : Mixed[]
 ```
 
 ```js

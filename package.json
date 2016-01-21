@@ -5,8 +5,8 @@
   "main": "src/lib.js",
   "scripts": {
     "test": "NODE_ENV=test mocha -r should -R spec",
-    "coverage": "istanbul cover node_modules/.bin/_mocha -- -r should -R spec",
-    "cov:dev": "npm run coverage && open ./coverage/lcov-report/index.html"
+    "coverage": "NODE_ENV=test istanbul cover node_modules/.bin/_mocha -- -r should -R spec",
+    "cov:dev": "NODE_ENV=test npm run coverage && open ./coverage/lcov-report/index.html"
   },
   "engines": {
     "node" : ">=0.12.0"
