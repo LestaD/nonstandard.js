@@ -69,5 +69,26 @@ describe('Object', function() {
       should(copy.b).equal(2);
       should(copy.c).equal(3);
     });
+
+    it('copy with arrays', function() {
+      var orig = { a: [1, 2, 3], b: [4, 5, 6], c: { d: [8, 9, 0] } };
+      var copy = null;
+
+      should.doesNotThrow(function() { copy = Object.clone(orig); });
+      should(copy).not.be.equal(orig);
+      should(Object.keys(copy).length).equal(Object.keys(orig).length);
+
+      should(copy.a.length).be.equal(orig.a.length);
+      should(copy.b.length).be.equal(orig.b.length);
+      should(copy.c.d.length).be.equal(orig.c.d.length);
+
+      should(copy.a).not.be.equal(orig.a);
+      should(copy.b).not.be.equal(orig.b);
+      should(copy.c.d).not.be.equal(orig.c.d);
+
+      should(copy.a[1]).be.equal(orig.a[1]);
+      should(copy.b[1]).be.equal(orig.b[1]);
+      should(copy.c.d[1]).be.equal(orig.c.d[1]);
+    });
   });
 });
