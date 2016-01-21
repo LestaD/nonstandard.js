@@ -102,6 +102,8 @@ if (typeof Object.clone === 'undefined') {
     enumerable: false,
     configurable: false,
     value: function (target) {
+      if (typeof target !== 'object') throw new TypeError('Parameter `target` must be Object!');
+
       var newObj = {};
       var keys = Object.keys(target);
 
@@ -146,7 +148,7 @@ if (typeof Number.prototype.times === 'undefined') {
     enumerable: false,
     configurable: false,
     value: function (callback) {
-      if (typeof callback !== 'function') throw new Error('Parameter `callback` must be Function!');
+      if (typeof callback !== 'function') throw new TypeError('Parameter `callback` must be Function!');
 
       var result = [];
       var iterates = Number(this);
