@@ -2,6 +2,7 @@ var path = process.env.COVERAGE ? '../coverage/lib.js' : '../src/lib.js';
 
 var lib = require(path);
 var should = require('should');
+var sinon = require('sinon');
 
 
 describe('Number', function() {
@@ -70,6 +71,17 @@ describe('Number', function() {
       should(rg[1]).be.equal(-3);
       should(rg[2]).be.equal(-2);
     });
+  });
 
+  describe('.times()', function() {
+    it('property exists', function() {
+      should(5).have.a.property('times');
+      should((5).times).be.a.Function;
+    });
+
+    it('calls', function() {
+      var cb = sinon.spy();
+
+    });
   });
 });

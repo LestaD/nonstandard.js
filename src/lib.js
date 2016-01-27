@@ -126,6 +126,23 @@ if (typeof Object.clone === 'undefined') {
 }
 
 
+if (typeof Object.empty === 'undefined') {
+  Object.defineProperty(Object, 'empty', {
+    enumerable: false,
+    configurable: false,
+    value: function(target) {
+      if (!Array.isArray(target) && typeof target !== 'object') throw new TypeError('Parameter `target` must be Object or Array!');
+
+      if (Array.isArray(target)) {
+        return target.length === 0;
+      }
+
+      return Object.keys(target).length === 0;
+    }
+  });
+}
+
+
 if (typeof Number.range === 'undefined') {
   Object.defineProperty(Number, 'range', {
     enumerable: false,

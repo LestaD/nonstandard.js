@@ -191,6 +191,26 @@ var wob = Object.clone(oob);
 // Object `wob` is full copy of `oob` without links in memory
 ```
 
+
+## Object.empty
+
+Check if object has not keys or array has not elements
+
+```typescript
+Object.empty(target: Object) : Boolean;
+Object.empty(target: Array) : Boolean;
+```
+
+```js
+Object.empty({}) // true
+Object.empty({ a: 2 }) // false
+Object.empty(window) // false
+
+Object.empty([]) // true
+Object.empty([1, 2, 3]) // true
+```
+
+
 ## Number.range
 
 Create array of numbers

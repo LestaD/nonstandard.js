@@ -91,4 +91,42 @@ describe('Object', function() {
       should(copy.c.d[1]).be.equal(orig.c.d[1]);
     });
   });
+
+  describe('.empty()', function() {
+    it('property exists', function() {
+      should(Object).have.property('empty');
+      should(Object.empty).be.a.Function;
+    });
+
+    it('throws on non object/array', function() {
+      should.throws(function() { Object.empty(); });
+      should.throws(function() { Object.empty(1); });
+      should.throws(function() { Object.empty(""); });
+      should.throws(function() { Object.empty(null); });
+      should.throws(function() { Object.empty(function(){}); });
+
+      should.doesNotThrow(function() { Object.empty([]); });
+      should.doesNotThrow(function() { Object.empty({}); });
+    });
+
+    it('check empty object', function() {
+      should(Object.empty({})).be.equal(true);
+      should(Object.empty(new Object())).be.equal(true);
+    });
+
+    it('check empty array', function() {
+      should(Object.empty([])).be.equal(true);
+      should(Object.empty(new Array())).be.equal(true);
+    });
+
+    it('check nonempty object', function() {
+      should(Object.empty({ a: 2 })).be.equal(false);
+      should(Object.empty(new Object({ b: 2 }))).be.equal(false);
+    });
+
+    it('check nonempty array', function() {
+      should(Object.empty([1])).be.equal(false);
+      should(Object.empty([1, 2, 3])).be.equal(false);
+    });
+  });
 });
