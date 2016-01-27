@@ -20,6 +20,17 @@ function defineMethod(target, name, method) {
   });
 }
 
+function definePipe(target, defaultBind) {
+  defineMethod(target, 'pipe', function()
+  {
+    var context = defaultBind ? console.log : target;
+
+    if (!(typeof process !== 'undefined' && process.env.NODE_ENV === "test")) {
+      context.apply(context, arguments);
+    }
+    return arguments[0]; // arguments is not Array
+  });
+};
 
 
 defineProperty(Array.prototype, 'first',
@@ -161,65 +172,8 @@ defineMethod(Number.prototype, 'times', function(callEvery)
 
 
 
-
-(function(){
-  var definePipe = function(target, name) {
-    if (!('pipe' in target)) {
-      Object.defineProperty(target[name], 'pipe', {
-        enumerable: false,
-        configurable: false,
-        value: function() {
-          var caller = target[name];
-          if (!(typeof process !== 'undefined' && process.env.NODE_ENV === "test")) {
-            caller.apply(target, arguments);
-          }
-          return arguments[0];
-        }
-      });
-    }
-  };
-
-  if (typeof global !== 'undefined' && global.console) {
-    definePipe(global.console, 'error');
-    definePipe(global.console, 'warn');
-    definePipe(global.console, 'info');
-    definePipe(global.console, 'log');
-
-    if (!('pipe' in global.console)) {
-      Object.defineProperty(global.console, 'pipe', {
-        enumerable: false,
-        configurable: false,
-        value: function() {
-          if (!(typeof process !== 'undefined' && process.env.NODE_ENV === "test")) {
-            global.console.log.apply(global.console, arguments);
-          }
-          return arguments[0];
-        }
-      });
-    }
-  }
-
-  if (typeof window !== 'undefined' && window.console) {
-    definePipe(window.console, 'error');
-    definePipe(window.console, 'warn');
-    definePipe(window.console, 'info');
-    definePipe(window.console, 'log');
-
-    if (!('pipe' in window.console)) {
-      Object.defineProperty(window.console, 'pipe', {
-        enumerable: false,
-        configurable: false,
-        value: function() {
-          if (!(typeof process !== 'undefined' && process.env.NODE_ENV === "test")) {
-            window.console.log.apply(window.console, arguments);
-          }
-          return arguments[0];
-        }
-      });
-    }
-  }
-})();
-
-
-
-
+definePipe(console.log);
+definePipe(console.info);
+definePipe(console.warn);
+definePipe(console.error);
+definePipe(console, true);
