@@ -158,16 +158,9 @@ if (typeof Number.range === 'undefined') {
       if (step <= 0) throw new Error('Step must be positive number!');
       if (min > max) throw new Error('Min must be less than Max!');
 
-      var values = [min];
-      var it = min;
+      var values = [min], it = min;
 
-      // if (step < 0) {
-      //   var back = max;
-      //   max = min;
-      //   min = back;
-      // }
-
-      while(it != max) {
+      while(it !== max) {
         values.push(it += step);
       }
       return values;
@@ -185,7 +178,8 @@ if (typeof Number.prototype.times === 'undefined') {
       var result = [];
       var iterates = Number(this);
       for (var i = 0; i < iterates; i++) {
-        result.push(callback(i + 0));
+        var cond = callback(i + 0);
+        result.push(cond);
       }
       return result;
     }
@@ -201,7 +195,7 @@ if (typeof Number.prototype.times === 'undefined') {
         configurable: false,
         value: function() {
           var caller = target[name];
-          if (!(typeof process !== 'undefined' && process.env.NODE_ENV == "test")) {
+          if (!(typeof process !== 'undefined' && process.env.NODE_ENV === "test")) {
             caller.apply(target, arguments);
           }
           return arguments[0];
@@ -221,7 +215,7 @@ if (typeof Number.prototype.times === 'undefined') {
         enumerable: false,
         configurable: false,
         value: function() {
-          if (!(typeof process !== 'undefined' && process.env.NODE_ENV == "test")) {
+          if (!(typeof process !== 'undefined' && process.env.NODE_ENV === "test")) {
             global.console.log.apply(global.console, arguments);
           }
           return arguments[0];
@@ -241,7 +235,7 @@ if (typeof Number.prototype.times === 'undefined') {
         enumerable: false,
         configurable: false,
         value: function() {
-          if (!(typeof process !== 'undefined' && process.env.NODE_ENV == "test")) {
+          if (!(typeof process !== 'undefined' && process.env.NODE_ENV === "test")) {
             window.console.log.apply(window.console, arguments);
           }
           return arguments[0];
