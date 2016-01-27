@@ -313,6 +313,7 @@ describe('Array', function() {
       });
     });
   });
+
   describe('.empty()', function() {
     it('property exists', function() {
       should(Array).have.property('empty');
@@ -338,6 +339,34 @@ describe('Array', function() {
     it('check nonempty array', function() {
       should(Array.empty([1])).be.equal(false);
       should(Array.empty([1, 2, 3])).be.equal(false);
+    });
+  });
+
+  describe('.present()', function() {
+    it('property exists', function() {
+      should(Array).have.property('present');
+      should(Array.present).be.a.Function;
+    });
+
+    it('throws on non array', function() {
+      should.throws(function() { Array.present(); });
+      should.throws(function() { Array.present(1); });
+      should.throws(function() { Array.present(""); });
+      should.throws(function() { Array.present(null); });
+      should.throws(function() { Array.present(function(){}); });
+      should.throws(function() { Array.present({}); });
+
+      should.doesNotThrow(function() { Array.present([]); });
+    });
+
+    it('check empty array', function() {
+      should(Array.present([])).be.equal(false);
+      should(Array.present(new Array())).be.equal(false);
+    });
+
+    it('check nonempty array', function() {
+      should(Array.present([1])).be.equal(true);
+      should(Array.present([1, 2, 3])).be.equal(true);
     });
   });
 });

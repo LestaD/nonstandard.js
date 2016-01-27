@@ -119,4 +119,32 @@ describe('Object', function() {
       should(Object.empty(new Object({ b: 2 }))).be.equal(false);
     });
   });
+
+  describe('.present()', function() {
+    it('property exists', function() {
+      should(Object).have.property('present');
+      should(Object.present).be.a.Function;
+    });
+
+    it('throws on non object', function() {
+      should.throws(function() { Object.present(); });
+      should.throws(function() { Object.present(1); });
+      should.throws(function() { Object.present(""); });
+      should.throws(function() { Object.present(null); });
+      should.throws(function() { Object.present(function(){}); });
+      should.throws(function() { Object.present([]); });
+
+      should.doesNotThrow(function() { Object.present({}); });
+    });
+
+    it('check empty object', function() {
+      should(Object.present({})).be.equal(false);
+      should(Object.present(new Object())).be.equal(false);
+    });
+
+    it('check nonempty object', function() {
+      should(Object.present({ a: 2 })).be.equal(true);
+      should(Object.present(new Object({ b: 2 }))).be.equal(true);
+    });
+  });
 });

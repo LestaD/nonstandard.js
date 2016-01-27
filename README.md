@@ -69,7 +69,21 @@ Array.empty(target: Array) : Boolean;
 
 ```js
 Array.empty([]) // true
-Array.empty([1, 2, 3]) // true
+Array.empty([1, 2, 3]) // false
+```
+
+
+## Array.present
+
+Check if array has some elements
+
+```typescript
+Array.present(target: Array) : Boolean;
+```
+
+```js
+Array.present([]) // false
+Array.present([1, 2, 3]) // true
 ```
 
 
@@ -217,6 +231,20 @@ Object.empty(target: Object) : Boolean;
 Object.empty({}) // true
 Object.empty({ a: 2 }) // false
 Object.empty(window) // false
+```
+
+## Object.present
+
+Check if object has keys
+
+```typescript
+Object.present(target: Object) : Boolean;
+```
+
+```js
+Object.present({}) // false
+Object.present({ a: 2 }) // true
+Object.present(window) // true
 ```
 
 
