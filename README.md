@@ -20,7 +20,7 @@ Log value to console and pass value
 First value was passed next.
 
 ```ts
-console.pipe(returnValue: Mixed, logValue1: Mixed, logValue2: Mixed, logValueN: Mixed) : returnValue;
+console.pipe(returnValue: any, logValue1: any, logValue2: any, logValueN: any) : any;
 ```
 
 ```js
@@ -39,10 +39,10 @@ console.log(console.pipe('hello', 'world'));
 ## console.[log, info, warn, error].pipe
 
 ```ts
-console.log.pipe();
-console.info.pipe();
-console.warn.pipe();
-console.error.pipe();
+console.log.pipe(value: any) : any;
+console.info.pipe(value: any) : any;
+console.warn.pipe(value: any) : any;
+console.error.pipe(value: any) : any;
 ```
 
 ```js
@@ -64,7 +64,7 @@ function actionLogin(user) {
 Check if array has not elements
 
 ```ts
-Array.empty(target: Array) : Boolean;
+Array.empty(target: array) : boolean;
 ```
 
 ```js
@@ -78,7 +78,7 @@ Array.empty([1, 2, 3]) // false
 Check if array has some elements
 
 ```ts
-Array.present(target: Array) : Boolean;
+Array.present(target: array) : boolean;
 ```
 
 ```js
@@ -148,7 +148,7 @@ Clear array
 
 
 ```ts
-[].clear() : Array<Mixed>
+[].clear()
 ```
 
 ```js
@@ -175,7 +175,7 @@ Check elements exists in array
 
 
 ```ts
-[].includes(Array<Mixed>) : Boolean
+[].includes(any[]) : boolean
 ```
 
 ```js
@@ -193,7 +193,7 @@ arr.includes('d'); // false
 Full clone array.
 
 ```ts
-[].clone() : Array<Mixed>
+[].clone() : any[]
 ```
 
 ```js
@@ -208,7 +208,7 @@ arr // [1, 5]
 Deep clone object
 
 ```ts
-Object.clone(target: Object) : Object;
+Object.clone(target: object) : object;
 ```
 
 ```js
@@ -224,7 +224,7 @@ var wob = Object.clone(oob);
 Check if object has not keys
 
 ```ts
-Object.empty(target: Object) : Boolean;
+Object.empty(target: object) : boolean;
 ```
 
 ```js
@@ -238,7 +238,7 @@ Object.empty(window) // false
 Check if object has keys
 
 ```ts
-Object.present(target: Object) : Boolean;
+Object.present(target: object) : boolean;
 ```
 
 ```js
@@ -253,7 +253,7 @@ Object.present(window) // true
 Create array of numbers
 
 ```ts
-Number.range(min: Number, max: Number, step: Number = 1) : Number[];
+Number.range(min: number, max: number, step: number = 1) : number[];
 ```
 
 ```js
@@ -273,7 +273,7 @@ console.log(Number.range(2, 8, 2))
 Run callback n times
 
 ```ts
-(5).times(function(index: Number) { return index + 1; }) : Mixed[]
+(5).times(function(index: number) { return index + 1; }) : any[]
 ```
 
 ```js
