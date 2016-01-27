@@ -4,7 +4,7 @@
 
  [![Build Status](https://travis-ci.org/LestaD/nonstandard.js.svg?branch=master)](https://travis-ci.org/LestaD/nonstandard.js)
  ![Dependencies](https://david-dm.org/lestad/nonstandard.js.svg)
- [![npm version](https://badge.fury.io/js/nonstandard.svg)](https://npmjs.com/nonstandard)
+ [![npm version](https://badge.fury.io/js/nonstandard.svg?new)](https://npmjs.com/nonstandard)
  [![Code Climate](https://codeclimate.com/github/LestaD/nonstandard.js/badges/gpa.svg)](https://codeclimate.com/github/LestaD/nonstandard.js)
  [![Test Coverage](https://codeclimate.com/github/LestaD/nonstandard.js/badges/coverage.svg)](https://codeclimate.com/github/LestaD/nonstandard.js/coverage)
  [![bitHound Overalll Score](https://www.bithound.io/github/LestaD/nonstandard.js/badges/score.svg)](https://www.bithound.io/github/LestaD/nonstandard.js)
