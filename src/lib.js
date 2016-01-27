@@ -30,7 +30,7 @@ function definePipe(target, defaultBind) {
     }
     return arguments[0]; // arguments is not Array
   });
-};
+}
 
 
 // ===== Array.prototype ===== //
@@ -117,9 +117,7 @@ defineMethod(Array, 'empty', function(target)
 
 defineMethod(Array, 'present', function(target)
 {
-  if (!Array.isArray(target)) throw new TypeError('Parameter `target` must be Array!');
-
-  return target.length !== 0;
+  return !Array.empty(target);
 });
 
 
@@ -161,10 +159,7 @@ defineMethod(Object, 'empty', function(target)
 
 defineMethod(Object, 'present', function(target)
 {
-  if (typeof target !== 'object') throw new TypeError('Parameter `target` must be Object!');
-  if (Array.isArray(target)) throw new TypeError('Use Array.present()!');
-
-  return Object.keys(target).length !== 0;
+  return !Object.empty(target);
 });
 
 
