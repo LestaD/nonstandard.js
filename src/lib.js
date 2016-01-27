@@ -1,189 +1,165 @@
 
+function defineProperty(target, name, getter, setter) {
+  if (typeof target[name] !== 'undefined') return;
 
-if (typeof [1].first === 'undefined') {
-  Object.defineProperty(Array.prototype, 'first', {
+  Object.defineProperty(target, name, {
     enumerable: false,
     configurable: false,
-    get: function () {
-      return this[0];
-    },
-    set: function (value) {
-      this[0] = value;
+    get: getter,
+    set: setter
+  });
+}
+
+function defineMethod(target, name, method) {
+  if (typeof target[name] !== 'undefined') return;
+
+  Object.defineProperty(target, name, {
+    enumerable: false,
+    configurable: false,
+    value: method
+  });
+}
+
+
+
+defineProperty(Array.prototype, 'first',
+  function() {
+    return this[0];
+  },
+  function(value) {
+    this[0] = value;
+    return value;
+  }
+);
+
+
+defineProperty(Array.prototype, 'second',
+  function() {
+    return this[1];
+  },
+  function(value) {
+    this[1] = value;
+    return value;
+  }
+);
+
+
+defineProperty(Array.prototype, 'last',
+  function() {
+    if (this.length === 0) return undefined;
+    return this[this.length - 1];
+  },
+  function(value) {
+    if (this.length > 0) {
+      this[this.length - 1] = value;
       return value;
     }
-  });
-}
+    return undefined;
+  }
+);
 
 
-if (typeof [1, 2].second === 'undefined') {
-  Object.defineProperty(Array.prototype, 'second', {
-    enumerable: false,
-    configurable: false,
-    get: function () {
-      return this[1];
-    },
-    set: function (value) {
-      this[1] = value;
-      return value;
+defineMethod(Array.prototype, 'clean', function(deleteValue)
+{
+  for (var foundId = 0; foundId < this.length; foundId++) {
+    if (this[foundId] === deleteValue || (typeof deleteValue === 'function' && deleteValue(this[foundId]))) {
+      this.splice(foundId, 1);
+      foundId--;
     }
+  }
+  return this;
+});
+
+
+defineMethod(Array.prototype, 'includes', function(searchElements)
+{
+  var that = this;
+
+  if (!Array.isArray(searchElements)) {
+    searchElements = [searchElements];
+  }
+  return searchElements.every(function(element){
+    return that.indexOf(element) > -1;
   });
-}
+});
 
 
-if (typeof [1].last === 'undefined') {
-  Object.defineProperty(Array.prototype, 'last', {
-    enumerable: false,
-    configurable: false,
-    get: function () {
-      if (this.length === 0) return undefined;
-      return this[this.length - 1];
-    },
-    set: function (value) {
-      if (this.length > 0) {
-        this[this.length - 1] = value;
-        return value;
-      }
-      else {
-        return undefined;
-      }
+defineMethod(Array.prototype, 'clone', function()
+{
+  return this.slice(0);
+});
+
+
+defineMethod(Object, 'clone', function(target)
+{
+  if (typeof target !== 'object') throw new TypeError('Parameter `target` must be Object!');
+
+  var newObj = {};
+  var keys = Object.keys(target);
+
+  for (var index in keys) {
+    var key = keys[index];
+
+    if (Array.isArray(target[key])) {
+      newObj[key] = target[key].clone();
     }
-  });
-}
-
-
-if (typeof Array.prototype.clean === 'undefined') {
-  Object.defineProperty(Array.prototype, 'clean', {
-    enumerable: false,
-    configurable: false,
-    value: function (deleteValue) {
-      for (var foundId = 0; foundId < this.length; foundId++) {
-        if (this[foundId] === deleteValue || (typeof deleteValue === 'function' && deleteValue(this[foundId]))) {
-          this.splice(foundId, 1);
-          foundId--;
-        }
-      }
-      return this;
+    else if (typeof target[key] === 'object') {
+      newObj[key] = Object.clone(target[key]);
     }
-  });
-}
-
-
-if (typeof Array.prototype.includes === 'undefined') {
-  Object.defineProperty(Array.prototype, 'includes', {
-    enumerable: false,
-    configurable: false,
-    value: function (searchElements) {
-      var that = this;
-
-      if (!Array.isArray(searchElements)) {
-        searchElements = [searchElements];
-      }
-      return searchElements.every(function(element){
-        return that.indexOf(element) > -1;
-      });
+    else {
+      newObj[key] = target[key];
     }
-  });
-}
+  }
+  return newObj;
+});
 
 
-if (typeof Array.prototype.clone === 'undefined') {
-  Object.defineProperty(Array.prototype, 'clone', {
-    enumerable: false,
-    configurable: false,
-    value: function () {
-      return this.slice(0);
-    }
-  });
-}
+defineMethod(Object, 'empty', function(target)
+{
+  if (!Array.isArray(target) && typeof target !== 'object') throw new TypeError('Parameter `target` must be Object or Array!');
+
+  if (Array.isArray(target)) {
+    return target.length === 0;
+  }
+
+  return Object.keys(target).length === 0;
+});
 
 
-if (typeof Object.clone === 'undefined') {
-  Object.defineProperty(Object, 'clone', {
-    enumerable: false,
-    configurable: false,
-    value: function (target) {
-      if (typeof target !== 'object') throw new TypeError('Parameter `target` must be Object!');
+defineMethod(Number, 'range', function(min, max, step)
+{
+  if (typeof min !== 'number'
+      || typeof max !== 'number'
+      || (typeof step !== 'undefined' && typeof step !== 'number')) {
+    throw new TypeError('Arguments for Number.range() must be Number');
+  }
 
-      var newObj = {};
-      var keys = Object.keys(target);
+  if (typeof step === 'undefined') step = 1;
+  if (step <= 0) throw new Error('Step must be positive number!');
+  if (min > max) throw new Error('Min must be less than Max!');
 
-      for (var index in keys) {
-        var key = keys[index];
+  var values = [min], it = min;
 
-        if (Array.isArray(target[key])) {
-          newObj[key] = target[key].clone();
-        }
-        else if (typeof target[key] === 'object') {
-          newObj[key] = Object.clone(target[key]);
-        }
-        else {
-          newObj[key] = target[key];
-        }
-      }
-      return newObj;
-    }
-  });
-}
+  while(it !== max) {
+    values.push(it += step);
+  }
+  return values;
+});
 
 
-if (typeof Object.empty === 'undefined') {
-  Object.defineProperty(Object, 'empty', {
-    enumerable: false,
-    configurable: false,
-    value: function(target) {
-      if (!Array.isArray(target) && typeof target !== 'object') throw new TypeError('Parameter `target` must be Object or Array!');
+defineMethod(Number.prototype, 'times', function(callEvery)
+{
+  if (typeof callEvery !== 'function') throw new TypeError('Parameter `callEvery` must be Function!');
 
-      if (Array.isArray(target)) {
-        return target.length === 0;
-      }
-
-      return Object.keys(target).length === 0;
-    }
-  });
-}
+  var result = [];
+  var iterates = Number(this);
+  for (var i = 0; i < iterates; i++) {
+    result.push(callEvery(i + 0));
+  }
+  return result;
+});
 
 
-if (typeof Number.range === 'undefined') {
-  Object.defineProperty(Number, 'range', {
-    enumerable: false,
-    configurable: false,
-    value: function (min, max, step) {
-      if (typeof min !== 'number'
-          || typeof max !== 'number'
-          || (typeof step !== 'undefined' && typeof step !== 'number')) {
-        throw new TypeError('Arguments for Number.range() must be Number');
-      }
-
-      if (typeof step === 'undefined') step = 1;
-      if (step <= 0) throw new Error('Step must be positive number!');
-      if (min > max) throw new Error('Min must be less than Max!');
-
-      var values = [min], it = min;
-
-      while(it !== max) {
-        values.push(it += step);
-      }
-      return values;
-    }
-  });
-}
-
-if (typeof Number.prototype.times === 'undefined') {
-  Object.defineProperty(Number.prototype, 'times', {
-    enumerable: false,
-    configurable: false,
-    value: function (callback) {
-      if (typeof callback !== 'function') throw new TypeError('Parameter `callback` must be Function!');
-
-      var result = [];
-      var iterates = Number(this);
-      for (var i = 0; i < iterates; i++) {
-        result.push(callback(i + 0));
-      }
-      return result;
-    }
-  });
-}
 
 
 (function(){
