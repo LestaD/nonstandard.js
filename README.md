@@ -1,3 +1,4 @@
+
 # Readme
 
  [![NPM](https://nodei.co/npm/nonstandard.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/nonstandard/)
@@ -12,6 +13,28 @@
 Some non standard JavaScript features.
 
 > from Node.js > 0.12.0
+
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Contents**
+
+- [console.pipe](#consolepipe)
+- [console.[log, info, warn, error].pipe](#consolelog-info-warn-errorpipe)
+- [Array.empty](#arrayempty)
+- [Array.present](#arraypresent)
+- [Array.prototype.first](#arrayprototypefirst)
+- [Array.prototype.second](#arrayprototypesecond)
+- [Array.prototype.last](#arrayprototypelast)
+- [Array.prototype.clean](#arrayprototypeclean)
+- [Array.prototype.includes](#arrayprototypeincludes)
+- [Array.prototype.clone](#arrayprototypeclone)
+- [Object.clone](#objectclone)
+- [Object.empty](#objectempty)
+- [Object.present](#objectpresent)
+- [Number.range](#numberrange)
+- [Number.prototype.times](#numberprototypetimes)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 
 ## console.pipe
