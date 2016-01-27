@@ -19,7 +19,7 @@ Some non standard JavaScript features.
 Log value to console and pass value
 First value was passed next.
 
-```typescript
+```ts
 console.pipe(returnValue: Mixed, logValue1: Mixed, logValue2: Mixed, logValueN: Mixed) : returnValue;
 ```
 
@@ -38,7 +38,7 @@ console.log(console.pipe('hello', 'world'));
 
 ## console.[log, info, warn, error].pipe
 
-```typescript
+```ts
 console.log.pipe();
 console.info.pipe();
 console.warn.pipe();
@@ -63,7 +63,7 @@ function actionLogin(user) {
 
 Check if array has not elements
 
-```typescript
+```ts
 Array.empty(target: Array) : Boolean;
 ```
 
@@ -77,7 +77,7 @@ Array.empty([1, 2, 3]) // false
 
 Check if array has some elements
 
-```typescript
+```ts
 Array.present(target: Array) : Boolean;
 ```
 
@@ -91,7 +91,7 @@ Array.present([1, 2, 3]) // true
 
 First element in array
 
-```typescript
+```ts
 [].first
 ```
 
@@ -109,7 +109,7 @@ arr // [2, 9, 14]
 
 Second element in array
 
-```typescript
+```ts
 [].second
 ```
 
@@ -128,7 +128,7 @@ arr.second // 8
 Latest element in array
 
 
-```typescript
+```ts
 [].last
 ```
 
@@ -147,7 +147,7 @@ arr.last == arr[arr.length - 1] // true
 Clear array
 
 
-```typescript
+```ts
 [].clear() : Array<Mixed>
 ```
 
@@ -174,7 +174,7 @@ arr; // [2, 4, 6]
 Check elements exists in array
 
 
-```typescript
+```ts
 [].includes(Array<Mixed>) : Boolean
 ```
 
@@ -192,7 +192,7 @@ arr.includes('d'); // false
 
 Full clone array.
 
-```typescript
+```ts
 [].clone() : Array<Mixed>
 ```
 
@@ -207,7 +207,7 @@ arr // [1, 5]
 
 Deep clone object
 
-```typescript
+```ts
 Object.clone(target: Object) : Object;
 ```
 
@@ -223,7 +223,7 @@ var wob = Object.clone(oob);
 
 Check if object has not keys
 
-```typescript
+```ts
 Object.empty(target: Object) : Boolean;
 ```
 
@@ -237,7 +237,7 @@ Object.empty(window) // false
 
 Check if object has keys
 
-```typescript
+```ts
 Object.present(target: Object) : Boolean;
 ```
 
@@ -252,7 +252,7 @@ Object.present(window) // true
 
 Create array of numbers
 
-```typescript
+```ts
 Number.range(min: Number, max: Number, step: Number = 1) : Number[];
 ```
 
@@ -272,7 +272,7 @@ console.log(Number.range(2, 8, 2))
 
 Run callback n times
 
-```typescript
+```ts
 (5).times(function(index: Number) { return index + 1; }) : Mixed[]
 ```
 
