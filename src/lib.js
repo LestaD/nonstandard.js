@@ -178,8 +178,7 @@ if (typeof Number.prototype.times === 'undefined') {
       var result = [];
       var iterates = Number(this);
       for (var i = 0; i < iterates; i++) {
-        var cond = callback(i + 0);
-        result.push(cond);
+        result.push(callback(i + 0));
       }
       return result;
     }
