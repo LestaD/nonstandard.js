@@ -33,6 +33,9 @@ function definePipe(target, defaultBind) {
 };
 
 
+// ===== Array.prototype ===== //
+
+
 defineProperty(Array.prototype, 'first',
   function() {
     return this[0];
@@ -101,6 +104,20 @@ defineMethod(Array.prototype, 'clone', function()
 });
 
 
+// ===== Array ===== //
+
+
+defineMethod(Array, 'empty', function(target)
+{
+  if (!Array.isArray(target)) throw new TypeError('Parameter `target` must be Array!');
+
+  return target.length === 0;
+});
+
+
+// ===== Object ===== //
+
+
 defineMethod(Object, 'clone', function(target)
 {
   if (typeof target !== 'object') throw new TypeError('Parameter `target` must be Object!');
@@ -127,14 +144,14 @@ defineMethod(Object, 'clone', function(target)
 
 defineMethod(Object, 'empty', function(target)
 {
-  if (!Array.isArray(target) && typeof target !== 'object') throw new TypeError('Parameter `target` must be Object or Array!');
-
-  if (Array.isArray(target)) {
-    return target.length === 0;
-  }
+  if (typeof target !== 'object') throw new TypeError('Parameter `target` must be Object!');
+  if (Array.isArray(target)) throw new TypeError('Use Array.empty()!');
 
   return Object.keys(target).length === 0;
 });
+
+
+// ===== Number ===== //
 
 
 defineMethod(Number, 'range', function(min, max, step)
@@ -170,6 +187,8 @@ defineMethod(Number.prototype, 'times', function(callEvery)
   return result;
 });
 
+
+// ===== Number.prototype ===== //
 
 
 definePipe(console.log);

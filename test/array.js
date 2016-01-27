@@ -313,4 +313,31 @@ describe('Array', function() {
       });
     });
   });
+  describe('.empty()', function() {
+    it('property exists', function() {
+      should(Array).have.property('empty');
+      should(Array.empty).be.a.Function;
+    });
+
+    it('throws on non array', function() {
+      should.throws(function() { Array.empty(); });
+      should.throws(function() { Array.empty(1); });
+      should.throws(function() { Array.empty(""); });
+      should.throws(function() { Array.empty(null); });
+      should.throws(function() { Array.empty(function(){}); });
+      should.throws(function() { Array.empty({}); });
+
+      should.doesNotThrow(function() { Array.empty([]); });
+    });
+
+    it('check empty array', function() {
+      should(Array.empty([])).be.equal(true);
+      should(Array.empty(new Array())).be.equal(true);
+    });
+
+    it('check nonempty array', function() {
+      should(Array.empty([1])).be.equal(false);
+      should(Array.empty([1, 2, 3])).be.equal(false);
+    });
+  });
 });

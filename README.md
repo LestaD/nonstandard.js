@@ -59,6 +59,19 @@ function actionLogin(user) {
 }
 ```
 
+## Array.empty
+
+Check if array has not elements
+
+```typescript
+Array.empty(target: Array) : Boolean;
+```
+
+```js
+Array.empty([]) // true
+Array.empty([1, 2, 3]) // true
+```
+
 
 ## Array.prototype.first
 
@@ -194,20 +207,16 @@ var wob = Object.clone(oob);
 
 ## Object.empty
 
-Check if object has not keys or array has not elements
+Check if object has not keys
 
 ```typescript
 Object.empty(target: Object) : Boolean;
-Object.empty(target: Array) : Boolean;
 ```
 
 ```js
 Object.empty({}) // true
 Object.empty({ a: 2 }) // false
 Object.empty(window) // false
-
-Object.empty([]) // true
-Object.empty([1, 2, 3]) // true
 ```
 
 
