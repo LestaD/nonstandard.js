@@ -39,14 +39,14 @@ console.log(console.pipe('hello', 'world'));
 ## console.[log, info, warn, error].pipe
 
 ```ts
-console.log.pipe(value: any) : any;
-console.info.pipe(value: any) : any;
-console.warn.pipe(value: any) : any;
-console.error.pipe(value: any) : any;
+console.log.pipe(value: any, ...values: any[]) : any;
+console.info.pipe(value: any, ...values: any[]) : any;
+console.warn.pipe(value: any, ...values: any[]) : any;
+console.error.pipe(value: any, ...values: any[]) : any;
 ```
 
 ```js
-executeFunction(console.log.pipe({ some: 'data' })); // value was shown in console, and passed to function `executeFunction`
+executeFunction(console.log.pipe({ some: 'data' }, "that string has been logged only")); // value was shown in console, and passed to function `executeFunction`
 
 function actionLogin(user) {
   return login(user.credentials)
