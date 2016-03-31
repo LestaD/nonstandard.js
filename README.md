@@ -68,7 +68,7 @@ console.pipe(returnValue: any, logValue1: any, logValue2: any, logValueN: any) :
 Install:
 
 ```js
-require('nonstandard/src/console')
+require('nonstandard/src/console').Install();
 ```
 
 ```js
