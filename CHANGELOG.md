@@ -1,5 +1,10 @@
 # Nonstandard.js Changelog
 
+## 2016-03-31, Version 0.12.0
+
+* [[`6867ad33b8`](https://github.com/LestaD/nonstandard/commit/6867ad33b8)] - Refactor to many small modules (Sergey Sova)
+
+
 ## 2016-03-31, Version 0.11.0
 
 * [[`c555210956`](https://github.com/LestaD/nonstandard/commit/c555210956)] - **Add**: `String.random()` (Sergey Sova)
