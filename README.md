@@ -33,6 +33,7 @@ Some non standard JavaScript features.
 - [Object.present](#objectpresent)
 - [Number.range](#numberrange)
 - [Number.prototype.times](#numberprototypetimes)
+- [String.random](#stringrandom)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -302,5 +303,19 @@ Run callback n times
 ```js
 var result = (5).times(function(index) { return ++index * 2; });
 result // [ 2, 4, 6, 8, 10 ]
+```
+
+## String.random
+
+Generate random string with custom length
+
+```ts
+String.random(length: string = 10) : string;
+```
+
+```js
+String.random() // "778fx0hmc0"
+String.random(5) // "u5ojh"
+String.random(64) // "ww5z8kar8m6l4ichouw221n307xiec1wt6584qf4bib2rbsa4b379hoblsd42h3e"
 ```
 
