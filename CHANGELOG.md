@@ -2,6 +2,7 @@
 
 ## 2016-03-31, Version 0.11.0
 
+* [[`c555210956`](https://github.com/LestaD/nonstandard/commit/c555210956)] - **Add**: `String.random()` (Sergey Sova)
 * [[`970c55dd89`](https://github.com/LestaD/nonstandard/commit/970c55dd89)] - Update README.md (Sergey Sova)
 * [[`4fc877e99d`](https://github.com/LestaD/nonstandard/commit/4fc877e99d)] - Do more simple (Sergey Sova)
 
