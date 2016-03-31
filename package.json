@@ -12,6 +12,9 @@
   "engines": {
     "node": ">=0.12.0"
   },
+  "directories": {
+    "lib": "./src"
+  },
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/LestaD/nonstandard.js.git"

@@ -14,6 +14,24 @@ Some non standard JavaScript features.
 
 > from Node.js > 0.12.0
 
+### Usage
+
+```js
+require('nonstandard'); // Install all features
+
+// install specified function
+require('nonstandard/src/array/includes').Install();
+[1, 2, 3].includes(2); // true
+
+// Install some module
+require('nonstandard/src/array').Install();
+require('nonstandard/src/console').Install();
+require('nonstandard/src/number').Install();
+require('nonstandard/src/object').Install();
+require('nonstandard/src/string').Install();
+```
+
+
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Contents**
@@ -47,6 +65,12 @@ First value was passed next.
 console.pipe(returnValue: any, logValue1: any, logValue2: any, logValueN: any) : any;
 ```
 
+Install:
+
+```js
+require('nonstandard/src/console')
+```
+
 ```js
 // write `123` to console with `console.log`
 var a = console.pipe(123);
@@ -67,6 +91,12 @@ console.log.pipe(value: any, ...values: any[]) : any;
 console.info.pipe(value: any, ...values: any[]) : any;
 console.warn.pipe(value: any, ...values: any[]) : any;
 console.error.pipe(value: any, ...values: any[]) : any;
+```
+
+Install:
+
+```js
+require('nonstandard/src/console').Install();
 ```
 
 ```js
@@ -91,6 +121,12 @@ Check if array has not elements
 Array.empty(target: array) : boolean;
 ```
 
+Install:
+
+```js
+require('nonstandard/src/array/empty').Install();
+```
+
 ```js
 Array.empty([]) // true
 Array.empty([1, 2, 3]) // false
@@ -105,6 +141,12 @@ Check if array has some elements
 Array.present(target: array) : boolean;
 ```
 
+Install:
+
+```js
+require('nonstandard/src/array/present').Install();
+```
+
 ```js
 Array.present([]) // false
 Array.present([1, 2, 3]) // true
@@ -117,6 +159,12 @@ First element in array
 
 ```ts
 [].first
+```
+
+Install:
+
+```js
+require('nonstandard/src/array/properties').Install();
 ```
 
 ```js
@@ -135,6 +183,12 @@ Second element in array
 
 ```ts
 [].second
+```
+
+Install:
+
+```js
+require('nonstandard/src/array/properties').Install();
 ```
 
 ```js
@@ -156,6 +210,12 @@ Latest element in array
 [].last
 ```
 
+Install:
+
+```js
+require('nonstandard/src/array/properties').Install();
+```
+
 ```js
 var arr = [12, 34, 56, 78, 90];
 
@@ -172,7 +232,13 @@ Clear array
 
 
 ```ts
-[].clear()
+[].clean()
+```
+
+Install:
+
+```js
+require('nonstandard/src/array/clean').Install();
 ```
 
 ```js
@@ -202,6 +268,12 @@ Check elements exists in array
 [].includes(any[]) : boolean
 ```
 
+Install:
+
+```js
+require('nonstandard/src/array/includes').Install();
+```
+
 ```js
 var arr = ["a", "b", "c"];
 
@@ -220,6 +292,12 @@ Full clone array.
 [].clone() : any[]
 ```
 
+Install:
+
+```js
+require('nonstandard/src/array/clone').Install();
+```
+
 ```js
 var arr = [1, 5].clone();
 
@@ -233,6 +311,12 @@ Deep clone object
 
 ```ts
 Object.clone(target: object) : object;
+```
+
+Install:
+
+```js
+require('nonstandard/src/object/clone').Install();
 ```
 
 ```js
@@ -251,6 +335,12 @@ Check if object has not keys
 Object.empty(target: object) : boolean;
 ```
 
+Install:
+
+```js
+require('nonstandard/src/object/empty').Install();
+```
+
 ```js
 Object.empty({}) // true
 Object.empty({ a: 2 }) // false
@@ -263,6 +353,12 @@ Check if object has keys
 
 ```ts
 Object.present(target: object) : boolean;
+```
+
+Install:
+
+```js
+require('nonstandard/src/object/present').Install();
 ```
 
 ```js
@@ -278,6 +374,12 @@ Create array of numbers
 
 ```ts
 Number.range(min: number, max: number, step: number = 1) : number[];
+```
+
+Install:
+
+```js
+require('nonstandard/src/number/present').Install();
 ```
 
 ```js
@@ -300,6 +402,12 @@ Run callback n times
 (5).times(function(index: number) { return index + 1; }) : any[]
 ```
 
+Install:
+
+```js
+require('nonstandard/src/number/times').Install();
+```
+
 ```js
 var result = (5).times(function(index) { return ++index * 2; });
 result // [ 2, 4, 6, 8, 10 ]
@@ -311,6 +419,12 @@ Generate random string with custom length
 
 ```ts
 String.random(length: string = 10) : string;
+```
+
+Install:
+
+```js
+require('nonstandard/src/string/random').Install();
 ```
 
 ```js
