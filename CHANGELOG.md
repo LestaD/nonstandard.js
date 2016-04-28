@@ -1,5 +1,10 @@
 # Nonstandard.js Changelog
 
+## 2016-04-28, Version 1.0.0
+
+* [[`4e08fabeed`](https://github.com/LestaD/nonstandard/commit/4e08fabeed)] - Breakable upgrade: to Node.js@6.0.0 (Sergey Sova)
+
+
 ## 2016-03-31, Version 0.12.0
 
 * [[`6867ad33b8`](https://github.com/LestaD/nonstandard/commit/6867ad33b8)] - Refactor to many small modules (Sergey Sova)

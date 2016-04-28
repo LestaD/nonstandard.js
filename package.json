@@ -1,13 +1,14 @@
 {
   "name": "nonstandard",
-  "version": "1.0.0",
+  "version": "0.12.0",
   "description": "Non standard JavaScript features",
   "main": "src/lib.js",
   "scripts": {
     "test": "NODE_ENV=test mocha -r should -R spec",
     "coverage": "NODE_ENV=test istanbul cover node_modules/.bin/_mocha -- -r should -R spec",
     "cov:dev": "NODE_ENV=test npm run coverage && open ./coverage/lcov-report/index.html",
-    "toc": "doctoc --title \"**Contents**\" --github README.md "
+    "toc": "doctoc --title \"**Contents**\" --github README.md ",
+    "changelog": "my-changelog --group true --filter-release true"
   },
   "engines": {
     "node": ">=6.0.0"
