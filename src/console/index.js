@@ -1,9 +1,9 @@
-var T = require('../tools');
+const { definePipe } = require('../tools');
 
 module.exports.Install = function Install() {
-  T.definePipe(console.log);
-  T.definePipe(console.info);
-  T.definePipe(console.warn);
-  T.definePipe(console.error);
-  T.definePipe(console, true);
+  definePipe(console.log);
+  definePipe(console.info);
+  definePipe(console.warn);
+  definePipe(console.error);
+  definePipe(console, true);
 }

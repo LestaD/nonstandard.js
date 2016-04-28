@@ -1,17 +1,17 @@
-var T = require('../tools');
+const { CMI } = require('../tools');
 
-module.exports = T.CMI(Object, 'clone', function(target)
+module.exports = CMI(Object, 'clone', function(target)
 {
   if (typeof target !== 'object') throw new TypeError('Parameter `target` must be Object!');
 
-  var newObj = {};
-  var keys = Object.keys(target);
+  const newObj = {};
+  const keys = Object.keys(target);
 
-  for (var index in keys) {
-    var key = keys[index];
+  for (const index in keys) {
+    const key = keys[index];
 
     if (Array.isArray(target[key])) {
-      newObj[key] = target[key].clone();
+      newObj[key] = [...target[key]];
     }
     else if (typeof target[key] === 'object') {
       newObj[key] = Object.clone(target[key]);

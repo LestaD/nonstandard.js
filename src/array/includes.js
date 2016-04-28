@@ -1,13 +1,9 @@
-var T = require('../tools');
+const { CMI } = require('../tools');
 
-module.exports = T.CMI(Array.prototype, 'includes', function(searchElements)
+module.exports = CMI(Array.prototype, 'includes', function(searchElements)
 {
-  var that = this;
-
   if (!Array.isArray(searchElements)) {
     searchElements = [searchElements];
   }
-  return searchElements.every(function(element){
-    return that.indexOf(element) > -1;
-  });
+  return searchElements.every(element => this.indexOf(element) > -1);
 });

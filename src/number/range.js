@@ -1,6 +1,6 @@
-var T = require('../tools');
+const { CMI } = require('../tools');
 
-module.exports = T.CMI(Number, 'range', function(min, max, step)
+module.exports = CMI(Number, 'range', function(min, max, step = 1)
 {
   if (typeof min !== 'number'
       || typeof max !== 'number'
@@ -8,11 +8,11 @@ module.exports = T.CMI(Number, 'range', function(min, max, step)
     throw new TypeError('Arguments for Number.range() must be Number');
   }
 
-  if (typeof step === 'undefined') step = 1;
   if (step <= 0) throw new Error('Step must be positive number!');
   if (min > max) throw new Error('Min must be less than Max!');
 
-  var values = [min], it = min;
+  let values = [min]
+  let it = min;
 
   while(it !== max) {
     values.push(it += step);

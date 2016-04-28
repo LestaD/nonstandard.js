@@ -33,7 +33,7 @@ exports.definePipe = function definePipe(target, defaultBind) {
 }
 
 exports.createMethodInstaller = exports.CMI = function createMethodInstaller(target, name, method) {
-  var returner = {};
+  let returner = {};
   returner.Install = function Install() {
     exports.defineMethod(target, name, method);
   }

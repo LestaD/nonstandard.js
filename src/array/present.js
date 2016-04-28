@@ -1,6 +1,6 @@
-var T = require('../tools');
+const { CMI } = require('../tools');
 
-module.exports = T.CMI(Array, 'present', function(target)
+module.exports = CMI(Array, 'present', function(target)
 {
   return !Array.empty(target);
 });

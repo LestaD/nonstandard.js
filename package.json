@@ -1,6 +1,6 @@
 {
   "name": "nonstandard",
-  "version": "0.12.0",
+  "version": "1.0.0",
   "description": "Non standard JavaScript features",
   "main": "src/lib.js",
   "scripts": {
@@ -10,7 +10,7 @@
     "toc": "doctoc --title \"**Contents**\" --github README.md "
   },
   "engines": {
-    "node": ">=0.12.0"
+    "node": ">=6.0.0"
   },
   "directories": {
     "lib": "./src"
@@ -35,7 +35,7 @@
   "devDependencies": {
     "mocha": "^2.3.4",
     "should": "^8.1.1",
-    "should-sinon": "0.0.3",
+    "should-sinon": "0.0.5",
     "sinon": "^1.17.2"
   }
 }

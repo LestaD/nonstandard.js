@@ -1,7 +1,7 @@
-var T = require('../tools');
+const { defineProperty } = require('../tools');
 
 module.exports.Install = function Install() {
-  T.defineProperty(Array.prototype, 'first',
+  defineProperty(Array.prototype, 'first',
     function() {
       return this[0];
     },
@@ -10,9 +10,9 @@ module.exports.Install = function Install() {
       return value;
     }
   );
+  
 
-
-  T.defineProperty(Array.prototype, 'second',
+  defineProperty(Array.prototype, 'second',
     function() {
       return this[1];
     },
@@ -23,7 +23,7 @@ module.exports.Install = function Install() {
   );
 
 
-  T.defineProperty(Array.prototype, 'last',
+  defineProperty(Array.prototype, 'last',
     function() {
       if (this.length === 0) return undefined;
       return this[this.length - 1];
