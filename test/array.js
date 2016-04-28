@@ -224,37 +224,37 @@ describe('Array', function() {
       });
     });
 
-    describe('.included()', function() {
+    describe('.contains()', function() {
 
       it('property exists', function(){
-          should([]).have.property('included');
-          should(["a", "b"]).have.property('included');
-          should([].included).should.be.Function;
+          should([]).have.property('contains');
+          should(["a", "b"]).have.property('contains');
+          should([].contains).should.be.Function;
       });
       it('check return value', function(){
-        var result = ["a", "b"].included("a");
+        var result = ["a", "b"].contains("a");
         should(result).be.a.Boolean;
         beTrue(result);
       });
       it('single value check', function(){
-        result = ['a', 'b'].included('b');
+        result = ['a', 'b'].contains('b');
         beTrue(result);
 
-        result = ['a', 'b'].included(['a']);
+        result = ['a', 'b'].contains(['a']);
         beTrue(result);
       });
       it('multi value check', function(){
-        result = ['a', 'b', 'c'].included(['a', 'b', 'c']);
+        result = ['a', 'b', 'c'].contains(['a', 'b', 'c']);
         beTrue(result);
       });
       it('false check', function(){
-        result = ['a'].included('b');
+        result = ['a'].contains('b');
         beFalse(result);
 
-        result = [].included('c');
+        result = [].contains('c');
         beFalse(result);
 
-        result = [].included(['a', 1]);
+        result = [].contains(['a', 1]);
         beFalse(result);
       });
     });

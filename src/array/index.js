@@ -3,7 +3,7 @@ module.exports.Install = function Install() {
   [
     'properties',
     'clean',
-    'included',
+    'contains',
     'clone',
     'empty',
     'present'
