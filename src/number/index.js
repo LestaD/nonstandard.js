@@ -1,7 +1,7 @@
 
-module.exports.Install = function Install() {
-  [
-    'range',
-    'times'
-  ].map(part => require('./' + part).Install());
-}
+const { modulesKit } = require('../tools');
+
+modulesKit(module, require, [
+  'range',
+  'times'
+]);

@@ -1,11 +1,17 @@
 
-module.exports.Install = function Install() {
-  [
-    'properties',
-    'clean',
-    'contains',
-    'clone',
-    'empty',
-    'present'
-  ].map(part => require('./' + part).Install());
-}
+const { createModulesMap, installModules } = require('../tools');
+
+const modules = [
+  'clean',
+  'contains',
+  'clone',
+  'empty',
+  'present'
+];
+
+const ext = [
+  'properties'
+];
+
+module.exports.Install = installModules(require, modules.concat(ext));
+module.exports.Features = createModulesMap(require, modules);

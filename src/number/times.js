@@ -2,6 +2,7 @@ const { CMI } = require('../tools');
 
 module.exports = CMI(Number.prototype, 'times', function(callEvery)
 {
+  console.log(callEvery);
   if (typeof callEvery !== 'function') throw new TypeError('Parameter `callEvery` must be Function!');
 
   let result = [];

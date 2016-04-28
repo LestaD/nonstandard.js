@@ -272,6 +272,7 @@ Install:
 
 ```js
 require('nonstandard/src/array/contains').Install();
+const contains = require('nonstandard/src/array/contains').Feature;
 ```
 
 ```js

@@ -33,9 +33,31 @@ exports.definePipe = function definePipe(target, defaultBind) {
 }
 
 exports.createMethodInstaller = exports.CMI = function createMethodInstaller(target, name, method) {
-  let returner = {};
-  returner.Install = function Install() {
-    exports.defineMethod(target, name, method);
-  }
+  let returner = {
+    Install() {
+      exports.defineMethod(target, name, method);
+    },
+    Feature(target, ...args) {
+      return method.apply(target, args);
+    }
+  };
+
   return returner;
+}
+
+
+exports.createModulesMap = function createModulesMap($req, modules) {
+  let list = {};
+  modules.map(name => list[name] = $req('./' + name).Feature);
+  return list;
+}
+
+exports.installModules = function installModules($req, modules) {
+  return () => modules.map(part => $req('./' + part).Install());
+}
+
+
+exports.modulesKit = function($mod, $req, modules) {
+  $mod.exports.Install = exports.installModules($req, modules);
+  $mod.exports.Features = exports.createModulesMap($req, modules);
 }
