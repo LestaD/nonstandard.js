@@ -20,8 +20,8 @@ Some non standard JavaScript features.
 require('nonstandard'); // Install all features
 
 // install specified function
-require('nonstandard/src/array/includes').Install();
-[1, 2, 3].includes(2); // true
+require('nonstandard/src/array/included').Install();
+[1, 2, 3].included(2); // true
 
 // Install some module
 require('nonstandard/src/array').Install();
@@ -44,7 +44,7 @@ require('nonstandard/src/string').Install();
 - [Array.prototype.second](#arrayprototypesecond)
 - [Array.prototype.last](#arrayprototypelast)
 - [Array.prototype.clean](#arrayprototypeclean)
-- [Array.prototype.includes](#arrayprototypeincludes)
+- [Array.prototype.included](#arrayprototypeincluded)
 - [Array.prototype.clone](#arrayprototypeclone)
 - [Object.clone](#objectclone)
 - [Object.empty](#objectempty)
@@ -259,29 +259,29 @@ arr.clean(function(e){
 arr; // [2, 4, 6]
 ```
 
-## Array.prototype.includes
+## Array.prototype.included
 
 Check elements exists in array
 
 
 ```ts
-[].includes(any[]) : boolean
+[].included(any[]) : boolean
 ```
 
 Install:
 
 ```js
-require('nonstandard/src/array/includes').Install();
+require('nonstandard/src/array/included').Install();
 ```
 
 ```js
 var arr = ["a", "b", "c"];
 
-arr.includes(['a', 'b']); // true
+arr.included(['a', 'b']); // true
 
-arr.includes('c'); // true
+arr.included('c'); // true
 
-arr.includes('d'); // false
+arr.included('d'); // false
 ```
 
 ## Array.prototype.clone
@@ -432,4 +432,3 @@ String.random() // "778fx0hmc0"
 String.random(5) // "u5ojh"
 String.random(64) // "ww5z8kar8m6l4ichouw221n307xiec1wt6584qf4bib2rbsa4b379hoblsd42h3e"
 ```
-
