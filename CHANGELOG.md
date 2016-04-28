@@ -1,7 +1,8 @@
 # Nonstandard.js Changelog
 
-## 2016-04-28, Version 1.1.0
+## 2016-04-28, Version 1.1.1
 
+* [[`a07020f6ce`](https://github.com/LestaD/nonstandard/commit/a07020f6ce)] - Rename `Array.prototype.included` to `Array.prototype.contains` (Sergey Sova)
 * [[`545d479f45`](https://github.com/LestaD/nonstandard/commit/545d479f45)] - Rename `Array.prototype.includes` to `Array.prototype.included` (Sergey Sova)
 * [[`4e08fabeed`](https://github.com/LestaD/nonstandard/commit/4e08fabeed)] - Breakable upgrade: to Node.js@6.0.0 (Sergey Sova)
 
