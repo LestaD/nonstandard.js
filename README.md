@@ -9,6 +9,7 @@
  [![Code Climate](https://codeclimate.com/github/LestaD/nonstandard.js/badges/gpa.svg)](https://codeclimate.com/github/LestaD/nonstandard.js)
  [![Test Coverage](https://codeclimate.com/github/LestaD/nonstandard.js/badges/coverage.svg)](https://codeclimate.com/github/LestaD/nonstandard.js/coverage)
  [![bitHound Overalll Score](https://www.bithound.io/github/LestaD/nonstandard.js/badges/score.svg)](https://www.bithound.io/github/LestaD/nonstandard.js)
+ [![Downloads](https://img.shields.io/npm/dm/nonstandard.svg)](https://www.npmjs.com/package/nonstandard)
 
 Some non standard JavaScript features.
 
